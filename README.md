@@ -9,18 +9,21 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int main() {
+    double num = 23.65;
+    double *ptr = &num;
+    *ptr = 25.0;
+    printf("Modified value: %.2f\n", num);
+    return 0;
+}
+```
 
 ## OUTPUT:
- 	
 
-
-
-
-
-
-
-
-
+![437969688-7693d709-035d-48ab-bc73-cd50dbd4534d](https://github.com/user-attachments/assets/af9a38b2-51e1-4c62-ae3a-3ab1a60ceb86)
 
 
 ## RESULT:
@@ -45,15 +48,36 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+unsigned long long calculateProduct(int n) {
+    if (n == 1)
+        return 1;
+    else
+        return n * calculateProduct(n - 1);
+}
+
+int main() {
+    int n;
+    unsigned long long product;
+    n = 12;
+    product = calculateProduct(n);
+    printf("The product of the first 12 natural numbers is: %llu\n", product);
+    return 0;
+}
+```
+
 ## OUTPUT:
+
+![437969744-b8da577c-7de1-448a-baf4-9c8ab93bc286](https://github.com/user-attachments/assets/eaa0ec5c-74f5-4339-a505-d545030bf774)
+
          		
 ## RESULT:
 
 Thus the program has been executed successfully.
  
  
-
-
 # EX-23-ARRAYS AND ITS OPERATIONS
 
 ## AIM:
@@ -68,16 +92,35 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```
+#include <stdio.h>
 
+int main() {
+    int matrix[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int i, j, sum;
 
+    for (i = 0; i < 3; i++) {
+        sum = 0;
+        for (j = 0; j < 3; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d = %d\n", i + 1, sum);
+    }
+
+    return 0;
+}
+```
 
 ## OUTPUT
 
+![437969947-3494c0b9-a7d7-4c3d-bbd8-05171672f2f0](https://github.com/user-attachments/assets/44fac595-a4a8-409b-8f20-359bef91bdde) 
 
- 
- 
-
- ## RESULT
+## RESULT
+Thus the program has been executed successfully.
  
 
 
@@ -96,11 +139,40 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "PROGRAM";
+    int num_rows, len = strlen(str);
+
+    printf("Enter number of rows: ");
+    scanf("%d", &num_rows);
+
+    int midpoint = (2 * num_rows - 1) / 2;
+
+    for (int i = 1; i <= num_rows; i++) {
+        int j;
+        for (j = 0; j < num_rows - i; j++) {
+            printf(" ");
+        }
+        for (j = 0; j < 2 * i - 1; j++) {
+            printf("%c", str[j % len]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
 
 
  ## OUTPUT
 
- 
+ ![437969968-b08e9171-00b5-47b7-ab2a-ecf07af9890c](https://github.com/user-attachments/assets/807e171d-a625-46ed-afc9-e6a91c3487ca)
+
+
 
 ## RESULT
 
@@ -119,21 +191,57 @@ Write a c program to read and display an array of any 6 integer elements using p
 
 ## ALGORITHM
 Step 1: Start the program.
+
 Step 2: Declare the following:
+
 •	Integer variable i for iteration.
+
 •	Integer variable n to store the number of elements.
+
 •	Integer array arr[10] to hold up to 10 elements.
+
 •	Integer pointer parr and initialize it to point to the array arr.
+
 Step 3: Read the value of n (number of elements) from the user.
+
 Step 4: Loop from i = 0 to i < n:
+
 •	Read an integer value and store it in the address parr + i using pointer arithmetic.
+
 Step 5: Loop from i = 0 to i < n:
+
 •	Print the element at *(parr + i) using pointer dereferencing.
+
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int i, n;
+    int arr[10];
+    int *parr = arr;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", parr + i);
+    }
+    printf("The elements in the array are:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+    printf("\n");
+    return 0;
+}
+```
 
 ## OUTPUT
+
+![437969990-e941afef-fb0d-4558-8856-5e3b0085569f](https://github.com/user-attachments/assets/ff40a412-ff6f-4239-8633-f3d86f702721)
+
 
  
 
